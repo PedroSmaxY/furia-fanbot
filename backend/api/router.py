@@ -14,7 +14,7 @@ def root():
         "documentation": "/api/docs",
         "endpoints": {
             "/api/furia/next_match": "Próxima partida da FURIA",
-            "/api/furia/recent_results": "Resultados recentes",
+            "/api/furia/results": "Resultados recentes da FURIA",
             "/api/furia/roster": "Elenco atual",
             "/api/furia/ranking": "Informações de ranking"
         }
