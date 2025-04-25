@@ -8,10 +8,10 @@ router = APIRouter(prefix="/debug", tags=["debug"])
 
 @router.get("/debug_html", summary="Debug de qualquer URL do HLTV")
 async def debug_html(
-    url: str = Query(
-        ...,
-        description="URL completa para analisar (ex: https://www.hltv.org/team/8297/furia)",
-    )
+        url: str = Query(
+            ...,
+            description="URL completa para analisar (ex: https://www.hltv.org/team/8297/furia)",
+        )
 ) -> Dict[str, Any]:
     """
     Retorna o HTML bruto de qualquer URL para análise e debug.
@@ -27,10 +27,8 @@ async def debug_html(
                 status_code=503, detail="Não foi possível obter dados da URL"
             )
 
-        # Analisar o HTML com BeautifulSoup para uma representação mais estruturada
         soup = BeautifulSoup(html, "html.parser")
 
-        # Informações básicas sobre a estrutura
         page_info = {
             "url": url,
             "title": soup.title.text if soup.title else "Sem título",
@@ -38,7 +36,6 @@ async def debug_html(
             "total_elements": len(soup.find_all()),
         }
 
-        # Contagem de elementos por tipo
         element_counts = {}
         for tag in soup.find_all():
             tag_name = tag.name
@@ -49,7 +46,6 @@ async def debug_html(
 
         page_info["element_counts"] = element_counts
 
-        # Identificar principais tabelas e suas estruturas
         tables = soup.find_all("table")
         table_structures = []
 
@@ -59,7 +55,6 @@ async def debug_html(
 
             headers = [th.text.strip() for th in table.find_all("th")]
 
-            # Pegar uma linha de amostra
             sample_row = []
             first_row = table.find("tr")
             if first_row and first_row.find_all("td"):
@@ -78,20 +73,14 @@ async def debug_html(
 
         page_info["tables"] = table_structures
 
-        # Extrair textos importantes da página
         main_texts = []
         for heading in soup.find_all(["h1", "h2", "h3"]):
             main_texts.append(heading.text.strip())
 
-        page_info["main_headings"] = main_texts[
-            :10
-        ]  # Limitar a 10 para não sobrecarregar
-
-        # HTML dos primeiros 5000 caracteres para inspeção visual
+        page_info["main_headings"] = main_texts[:10]
         html_preview = html[:5000]
         page_info["html_preview"] = html_preview
 
-        # Identificar classes CSS mais comuns (útil para selecionar elementos)
         css_classes = {}
         for tag in soup.find_all(True, class_=True):
             for css_class in tag.get("class", []):
@@ -100,9 +89,8 @@ async def debug_html(
                 else:
                     css_classes[css_class] = 1
 
-        # Ordenar classes por frequência
         sorted_classes = sorted(css_classes.items(), key=lambda x: x[1], reverse=True)
-        page_info["common_css_classes"] = dict(sorted_classes[:20])  # Top 20 classes
+        page_info["common_css_classes"] = dict(sorted_classes[:20])
 
         return {"status": "success", "data": page_info}
     except Exception as e:
