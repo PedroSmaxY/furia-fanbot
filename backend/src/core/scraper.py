@@ -1,7 +1,7 @@
 from urllib.request import Request, urlopen
 import random
 import time
-from utils.cache import cache
+from src.utils.cache import cache
 import logging
 
 logger = logging.getLogger(__name__)

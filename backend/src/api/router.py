@@ -1,5 +1,6 @@
 from fastapi import APIRouter
-from api.endpoints import match, team, debug
+from src.api.endpoints import team, debug
+from src.api.endpoints import match
 
 router = APIRouter()
 

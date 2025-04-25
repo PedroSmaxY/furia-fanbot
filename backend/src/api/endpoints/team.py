@@ -1,11 +1,10 @@
 from fastapi import APIRouter, HTTPException
 from bs4 import BeautifulSoup
-from core.scraper import get_html
-from core.config import settings
+from src.core.scraper import get_html
+from src.core.config import settings
 from datetime import datetime
 from typing import Dict, Any
 import re
-
 
 PLAYER_NAMES = {
     "FalleN": "Gabriel Toledo",
@@ -17,7 +16,6 @@ PLAYER_NAMES = {
     "skullz": "Eduardo Teles",
     "sidde": "Pedro Bittencourt",  # Coach
 }
-
 
 router = APIRouter(prefix="/api/furia", tags=["team"])
 

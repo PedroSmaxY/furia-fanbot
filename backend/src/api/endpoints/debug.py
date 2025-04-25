@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, Query
 from bs4 import BeautifulSoup
-from core.scraper import get_html
+from src.core.scraper import get_html
 from typing import Dict, Any
 
 router = APIRouter(prefix="/api/debug", tags=["debug"])

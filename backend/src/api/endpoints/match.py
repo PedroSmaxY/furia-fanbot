@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from bs4 import BeautifulSoup
-from core.scraper import get_html
-from core.config import settings
+from src.core.scraper import get_html
+from src.core.config import settings
 from typing import Dict, Any
 
 router = APIRouter(prefix="/api/furia", tags=["matches"])
