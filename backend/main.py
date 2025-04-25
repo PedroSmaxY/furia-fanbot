@@ -1,7 +1,3 @@
-import ssl
-
-ssl._create_default_https_context = ssl._create_unverified_context
-
 import logging
 from fastapi import FastAPI
 from core.config import settings
@@ -13,6 +9,8 @@ logging.basicConfig(
     handlers=[logging.StreamHandler()],
 )
 
+logger = logging.getLogger(__name__)
+
 app = FastAPI(
     title=settings.API_TITLE,
     description=settings.API_DESCRIPTION,
@@ -22,8 +20,3 @@ app = FastAPI(
 )
 
 app.include_router(router)
-
-if __name__ == "__main__":
-    import uvicorn
-
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
