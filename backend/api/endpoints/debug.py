@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from core.scraper import get_html
 from typing import Dict, Any
 
-router = APIRouter(prefix="/debug", tags=["debug"])
+router = APIRouter(prefix="/api/debug", tags=["debug"])
 
 
 @router.get("/debug_html", summary="Debug de qualquer URL do HLTV")
