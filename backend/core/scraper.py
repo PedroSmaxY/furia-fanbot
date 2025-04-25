@@ -1,13 +1,7 @@
-import ssl
-
-ssl._create_default_https_context = ssl._create_unverified_context
-
 from urllib.request import Request, urlopen
-from bs4 import BeautifulSoup
 import random
 import time
 from utils.cache import cache
-from core.config import settings
 import logging
 
 logger = logging.getLogger(__name__)
