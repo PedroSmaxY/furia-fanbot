@@ -8,7 +8,7 @@ router = APIRouter(prefix="/api/furia", tags=["matches"])
 
 
 @router.get("/results", summary="Histórico de resultados da FURIA")
-def get_results_history(limit: int = 10) -> Dict[str, Any]:
+async def get_results_history(limit: int = 10) -> Dict[str, Any]:
     """
     Retorna o histórico detalhado de resultados das partidas da FURIA.
 
@@ -135,7 +135,7 @@ def get_results_history(limit: int = 10) -> Dict[str, Any]:
 
 
 @router.get("/next_match", summary="Próxima partida da FURIA")
-def get_next_furia_match() -> Dict[str, Any]:
+async def get_next_furia_match() -> Dict[str, Any]:
     """Retorna informações sobre a próxima partida da FURIA"""
 
     try:
