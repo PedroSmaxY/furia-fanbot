@@ -4,6 +4,7 @@ from core.scraper import get_html
 from core.config import settings
 from datetime import datetime
 from typing import Dict, Any
+import re
 
 
 PLAYER_NAMES = {
@@ -217,15 +218,39 @@ def get_ranking() -> Dict[str, Any]:
         
         soup = BeautifulSoup(html, "html.parser")
         
-        # Tentar encontrar o rank mundial
-        ranking_elem = soup.select_one(".profile-team-stat .right")
-        world_ranking = ranking_elem.text.strip() if ranking_elem else "Não disponível"
+        world_ranking = "Não disponível"
+        
+        world_ranking_header = soup.find(text="World ranking")
+
+        if world_ranking_header and world_ranking_header.parent:
+            span_right = world_ranking_header.parent.find_next("span", class_="right")
+            
+            if span_right:
+                ranking_link = span_right.select_one("a")
+                
+                if ranking_link:
+                    rank_text = ranking_link.text.strip()
+                    rank_match = re.search(r"#?(\d+)", rank_text)
+                    if rank_match:
+                        world_ranking = rank_match.group(1)
+                else:
+                    world_ranking = span_right.text.strip()
+        
+        if world_ranking == "Não disponível":
+            ranking_link = soup.select_one('a[href^="/ranking/teams/"]')
+            
+            if ranking_link:
+                rank_text = ranking_link.text.strip()
+                import re
+                rank_match = re.search(r"#?(\d+)", rank_text)
+                if rank_match:
+                    world_ranking = rank_match.group(1)
         
         return {
             "status": "success", 
             "data": {
                 "world_ranking": world_ranking,
-                "region": "Brasil",
+                "region": "Brazil",
                 "last_updated": datetime.now().strftime("%d/%m/%Y")
             }
         }
@@ -233,4 +258,5 @@ def get_ranking() -> Dict[str, Any]:
     except HTTPException as e:
         raise e
     except Exception as e:
+        print(f"Erro ao processar ranking: {str(e)}")
         return {"status": "error", "message": str(e)}
