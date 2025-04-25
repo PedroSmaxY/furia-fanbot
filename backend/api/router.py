@@ -9,7 +9,7 @@ router.include_router(debug.router)
 
 
 @router.get("/")
-def root():
+async def root():
     return {
         "message": "FURIA CS2 API",
         "version": "1.0.0",
