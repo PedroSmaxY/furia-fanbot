@@ -5,7 +5,7 @@ import { FullTeamStats } from "hltv/lib/endpoints/getTeamStats.js";
 const TEAM_ID = 8297;
 
 export default async function registerStatsRoutes(app: FastifyInstance) {
-  app.get("/", async (_, reply) => {
+  app.get("/", async (_, reply: FastifyReply) => {
     try {
       const teamStats: FullTeamStats = await HLTV.getTeamStats({
         id: TEAM_ID,
@@ -18,13 +18,26 @@ export default async function registerStatsRoutes(app: FastifyInstance) {
     }
   });
 
-  app.get("/overview", async (_, reply) => {
+  app.get("/overview", async (_, reply: FastifyReply) => {
     try {
       const teamStats: FullTeamStats = await HLTV.getTeamStats({
         id: TEAM_ID,
       });
 
       return reply.send({ overview: teamStats.overview });
+    } catch (error) {
+      app.log.error(error);
+      return reply.status(500).send({ error: "Failed to fetch team matches" });
+    }
+  });
+
+  app.get("/maps", async (_, reply: FastifyReply) => {
+    try {
+      const teamStats: FullTeamStats = await HLTV.getTeamStats({
+        id: TEAM_ID,
+      });
+
+      return reply.send({ stats: teamStats.mapStats });
     } catch (error) {
       app.log.error(error);
       return reply.status(500).send({ error: "Failed to fetch team matches" });
