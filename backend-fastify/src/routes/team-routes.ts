@@ -43,17 +43,6 @@ export default async function registerTeamRoutes(app: FastifyInstance) {
     }
   });
 
-  app.get("/matches", async (_, reply: FastifyReply) => {
-    try {
-      const team = await HLTV.getMatches({ teamIds: [TEAM_ID] });
-
-      return reply.send({ matches: team });
-    } catch (error) {
-      app.log.error(error);
-      return reply.status(500).send({ error: "Failed to fetch team matches" });
-    }
-  });
-
   app.get("/info", async (_, reply: FastifyReply) => {
     try {
       const team: FullTeam = await HLTV.getTeam({ id: TEAM_ID });
@@ -78,6 +67,10 @@ export default async function registerTeamRoutes(app: FastifyInstance) {
     try {
       const team: FullTeam = await HLTV.getTeam({ id: TEAM_ID });
       const news = team.news.slice(0, limit);
+
+      news.map((item) => {
+        item.link = "https://www.hltv.org" + item.link;
+      });
 
       return reply.send({ news: news });
     } catch (error) {
