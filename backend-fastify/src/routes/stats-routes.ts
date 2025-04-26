@@ -45,7 +45,7 @@ export default async function registerStatsRoutes(app: FastifyInstance) {
   });
 
   app.get("/matches", async (request: FastifyRequest, reply: FastifyReply) => {
-    const limit = Number((request.query as any).limit) || 5;
+    const { limit = 5 } = request.query as { limit: number };
 
     try {
       const teamStats: FullTeamStats = await HLTV.getTeamStats({
