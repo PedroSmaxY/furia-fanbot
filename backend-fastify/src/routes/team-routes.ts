@@ -3,7 +3,7 @@ import { FullTeam, FullTeamPlayer, HLTV } from "hltv";
 
 const TEAM_ID = 8297;
 
-export default async function registerTeamRoutes(app: FastifyInstance) {
+export async function registerTeamRoutes(app: FastifyInstance) {
   app.get("/roster", async (_, reply: FastifyReply) => {
     try {
       const team: FullTeam = await HLTV.getTeam({ id: TEAM_ID });

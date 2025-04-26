@@ -4,7 +4,7 @@ import { FullTeamStats } from "hltv/lib/endpoints/getTeamStats.js";
 
 const TEAM_ID = 8297;
 
-export default async function registerStatsRoutes(app: FastifyInstance) {
+export async function registerStatsRoutes(app: FastifyInstance) {
   app.get("/", async (_, reply: FastifyReply) => {
     try {
       const teamStats: FullTeamStats = await HLTV.getTeamStats({
