@@ -12,7 +12,7 @@
   },
   "keywords": [],
   "author": "github.com/pedrosmaxy",
-  "license": "ISC",
+  "license": "MIT",
   "description": "A simple API to get FURIA CS:GO team data",
   "dependencies": {
     "fastify": "^5.3.2",
