@@ -1,5 +1,6 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { FullTeam, FullTeamPlayer, HLTV } from "hltv";
+import { FullTeamStats } from "hltv/lib/endpoints/getTeamStats.js";
 
 const TEAM_ID = 8297;
 
@@ -28,6 +29,17 @@ export default async function registerTeamRoutes(app: FastifyInstance) {
     }
   });
 
+  app.get("/stats", async (request, reply) => {
+    try {
+      const teamStats: FullTeamStats = await HLTV.getTeamStats({ id: TEAM_ID });
+
+      return reply.send({ stats: teamStats });
+    } catch (error) {
+      app.log.error(error);
+      return reply.status(500).send({ error: "Failed to fetch team matches" });
+    }
+  });
+
   app.get("/ranking", async (request, reply) => {
     try {
       const team: FullTeam = await HLTV.getTeam({ id: TEAM_ID });
@@ -37,6 +49,17 @@ export default async function registerTeamRoutes(app: FastifyInstance) {
       };
 
       return reply.send({ ranking: rankingStats });
+    } catch (error) {
+      app.log.error(error);
+      return reply.status(500).send({ error: "Failed to fetch team matches" });
+    }
+  });
+
+  app.get("/matches", async (request, reply) => {
+    try {
+      const team = await HLTV.getMatches({ teamIds: [TEAM_ID] });
+
+      return reply.send({ matches: team });
     } catch (error) {
       app.log.error(error);
       return reply.status(500).send({ error: "Failed to fetch team matches" });
