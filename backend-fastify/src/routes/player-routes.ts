@@ -2,7 +2,7 @@ import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { HLTV } from "hltv";
 
 export async function registerPlayerRoutes(app: FastifyInstance) {
-  app.get("/players", async (request: FastifyRequest, reply: FastifyReply) => {
+  app.get("/", async (request: FastifyRequest, reply: FastifyReply) => {
     try {
       const players = await HLTV.getPlayerRanking();
       return reply.send(players);
@@ -15,7 +15,7 @@ export async function registerPlayerRoutes(app: FastifyInstance) {
   });
 
   app.get(
-    "/players/:id",
+    "/:id",
     async (
       request: FastifyRequest<{
         Params: { id: string };
