@@ -1,8 +1,17 @@
 import Fastify, { FastifyInstance } from "fastify";
 import { registerRoutes } from "./routes/index.js";
+import { apiDocumentation } from "./docs/api-documentation.js";
 
 const app: FastifyInstance = Fastify({
   logger: true,
+});
+
+app.get("/", async (request, reply) => {
+  const baseUrl = `${request.protocol}://${request.hostname}:3000`;
+  return reply.send({
+    ...apiDocumentation,
+    baseUrl: baseUrl,
+  });
 });
 
 await app.register(registerRoutes, { prefix: "/api/v1/furia" });
