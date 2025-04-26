@@ -28,7 +28,7 @@ Perfeita para integrações com chatbots, aplicações web ou mobile dedicadas a
 
 ## 📚 Instalação e Execução
 
-# Pré-requisitos
+### Pré-requisitos
 
 - [Node.js](https://nodejs.org/) (v22.14.0 ou superior)
 - npm (geralmente vem com o Node.js)
