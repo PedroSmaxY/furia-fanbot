@@ -1,7 +1,7 @@
 import { FastifyInstance } from "fastify";
 import { registerPlayerRoutes } from "./players-routes.js";
-import registerTeamRoutes from "./team-routes.js";
-import registerStatsRoutes from "./stats-routes.js";
+import { registerStatsRoutes } from "./stats-routes.js";
+import { registerTeamRoutes } from "./team-routes.js";
 
 export async function registerRoutes(app: FastifyInstance) {
   await app.register(registerPlayerRoutes, { prefix: "/players" });
