@@ -1,7 +1,7 @@
 import { FullPlayer, HLTV } from "hltv";
 import { cache } from "../utils/cache.js";
 
-const PLAYER_CACHE_TTL = 7200;
+const PLAYER_CACHE_TTL = 43200; /* 12 hours */
 
 export async function getPlayerInfo(identifier: string) {
   const cacheKey = `player_${identifier}`;
