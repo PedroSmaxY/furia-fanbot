@@ -6,7 +6,7 @@ type CacheEntry<T> = {
 class SimpleCache<T = any> {
   private store = new Map<string, CacheEntry<T>>();
 
-  constructor(private ttlMs: number = 3600 * 1000) {
+  constructor(private ttlMs: number = 3600 * 1000 /* 1 hour */) {
     this.startCleanup();
   }
 
