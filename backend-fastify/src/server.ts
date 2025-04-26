@@ -5,7 +5,7 @@ const app: FastifyInstance = Fastify({
   logger: true,
 });
 
-await app.register(registerRoutes, { prefix: "/api/v1" });
+await app.register(registerRoutes, { prefix: "/api/v1/furia" });
 
 const start = async () => {
   try {
