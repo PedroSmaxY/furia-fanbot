@@ -72,7 +72,7 @@ export default async function registerTeamRoutes(app: FastifyInstance) {
         item.link = "https://www.hltv.org" + item.link;
       });
 
-      return reply.send({ news: news });
+      return reply.send({ total: news.length, news: news });
     } catch (error) {
       app.log.error(error);
       return reply.status(500).send({ error: "Failed to fetch team matches" });
