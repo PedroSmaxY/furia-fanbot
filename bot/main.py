@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
 import telebot
 from os import getenv
+from src.handlers.start import start
 
 load_dotenv()
 
@@ -8,14 +9,18 @@ API_KEY = getenv("API_KEY")
 
 bot = telebot.TeleBot(API_KEY)
 
-
-@bot.message_handler(commands=['start'])
-def start(message):
-    bot.send_message(message.chat.id,
-                     "Hello! I'm a bot that can help you with various tasks. Type /help to see what I can do.")
-    print(f"User {message.from_user.username} started the bot.")
+start(bot)
 
 
-print("Bot is running...")
-bot.infinity_polling()
-print("Bot has stopped.")
+def main():
+    print("Bot is running...")
+    try:
+        bot.infinity_polling()
+    except Exception as e:
+        print(f"Error occurred: {e}")
+    finally:
+        print("Bot has stopped.")
+
+
+if __name__ == "__main__":
+    main()
