@@ -6,7 +6,7 @@ type CacheEntry<T> = {
 class SimpleCache<T = any> {
   private store = new Map<string, CacheEntry<T>>();
 
-  constructor(private ttlMs: number = 3600 * 5000 /* 5 hours */) {
+  constructor(private ttlMs: number = 3600 * 1000 /* 1 hour */) {
     this.startCleanup();
   }
 
@@ -28,7 +28,7 @@ class SimpleCache<T = any> {
     this.store.clear();
   }
 
-  private startCleanup(interval: number = 300000 /* 5 minutes */) {
+  private startCleanup(interval: number = 3600 * 1000 /* 1 hour */) {
     setInterval(() => this.cleanupExpired(), interval);
   }
 
