@@ -1,5 +1,6 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import {
+  getTeamCoach,
   getTeamData,
   getTeamInfo,
   getTeamNews,
@@ -12,6 +13,18 @@ export async function registerTeamRoutes(app: FastifyInstance) {
     try {
       const team = await getTeamData();
       const response = { players: team.players };
+
+      return reply.send(response);
+    } catch (error) {
+      app.log.error(error);
+      return reply.status(500).send({ error: "Failed to fetch team roster" });
+    }
+  });
+
+  app.get("/coach", async (_, reply: FastifyReply) => {
+    try {
+      const teamCoach = await getTeamCoach();
+      const response = { coach: teamCoach };
 
       return reply.send(response);
     } catch (error) {
