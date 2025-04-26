@@ -7,7 +7,7 @@ import {
   getTeamStats,
 } from "../services/team-service.js";
 
-export async function registerStatsRoutes(app: FastifyInstance) {
+export async function registerTeamStatsRoutes(app: FastifyInstance) {
   app.get("/", async (_, reply: FastifyReply) => {
     try {
       const teamStats: FullTeamStats = await getTeamStats();
