@@ -1,5 +1,4 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { FullTeam, HLTV } from "hltv";
 import { FullTeamStats } from "hltv/lib/endpoints/getTeamStats.js";
 import {
   getTeamMaps,
