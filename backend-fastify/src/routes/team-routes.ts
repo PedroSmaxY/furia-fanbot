@@ -1,11 +1,10 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { FullTeam, FullTeamPlayer, HLTV } from "hltv";
-import { FullTeamStats } from "hltv/lib/endpoints/getTeamStats.js";
 
 const TEAM_ID = 8297;
 
 export default async function registerTeamRoutes(app: FastifyInstance) {
-  app.get("/roster", async (request, reply) => {
+  app.get("/roster", async (_, reply: FastifyReply) => {
     try {
       const team: FullTeam = await HLTV.getTeam({ id: TEAM_ID });
       return reply.send({ players: team.players });
@@ -15,7 +14,7 @@ export default async function registerTeamRoutes(app: FastifyInstance) {
     }
   });
 
-  app.get("/coach", async (request, reply) => {
+  app.get("/coach", async (_, reply: FastifyReply) => {
     try {
       const team: FullTeam = await HLTV.getTeam({ id: TEAM_ID });
       const coach = team.players.find(
@@ -29,18 +28,7 @@ export default async function registerTeamRoutes(app: FastifyInstance) {
     }
   });
 
-  app.get("/stats", async (request, reply) => {
-    try {
-      const teamStats: FullTeamStats = await HLTV.getTeamStats({ id: TEAM_ID });
-
-      return reply.send({ stats: teamStats });
-    } catch (error) {
-      app.log.error(error);
-      return reply.status(500).send({ error: "Failed to fetch team matches" });
-    }
-  });
-
-  app.get("/ranking", async (request, reply) => {
+  app.get("/ranking", async (_, reply: FastifyReply) => {
     try {
       const team: FullTeam = await HLTV.getTeam({ id: TEAM_ID });
       const rankingStats = {
@@ -55,7 +43,7 @@ export default async function registerTeamRoutes(app: FastifyInstance) {
     }
   });
 
-  app.get("/matches", async (request, reply) => {
+  app.get("/matches", async (_, reply: FastifyReply) => {
     try {
       const team = await HLTV.getMatches({ teamIds: [TEAM_ID] });
 
@@ -66,7 +54,7 @@ export default async function registerTeamRoutes(app: FastifyInstance) {
     }
   });
 
-  app.get("/info", async (request, reply) => {
+  app.get("/info", async (_, reply: FastifyReply) => {
     try {
       const team: FullTeam = await HLTV.getTeam({ id: TEAM_ID });
       const info = {
