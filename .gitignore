@@ -310,4 +310,7 @@ poetry.toml
 # LSP config files
 pyrightconfig.json
 
+# idea project files
+.idea/
+
 # End of https://www.toptal.com/developers/gitignore/api/node,python
