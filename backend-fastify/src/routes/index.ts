@@ -8,7 +8,7 @@ export async function registerRoutes(app: FastifyInstance) {
   await app.register(registerStatsRoutes, { prefix: "/stats" });
   await app.register(registerTeamRoutes, { prefix: "/team" });
 
-  app.get("/", async (request, reply) => {
+  app.get("/", async (_, reply) => {
     return reply.send({ message: "Welcome to the HLTV API" });
   });
 }
