@@ -1,14 +1,15 @@
 # 🔥 FURIA CS2 - API
 
 <div align="center">
-    <img src="https://upload.wikimedia.org/wikipedia/pt/f/f9/Furia_Esports_logo.png" alt="FURIA Logo" width="200"/>
-    <h3>📊 Dados e Estatísticas para Fãs da FURIA Esports 📊</h3>
-    <p><i>API completa e atualizada sobre o time de CS2 FURIA Esports</i></p>
-    <p><b>Ideal para chatbots, aplicações web e mobile de fãs</b></p>
+  <img src="https://upload.wikimedia.org/wikipedia/pt/f/f9/Furia_Esports_logo.png" alt="FURIA Logo" width="200"/>
+  <h3>📊 Dados e Estatísticas para Fãs da FURIA Esports 📊</h3>
+  <p><i>API completa e atualizada sobre o time de CS2 FURIA Esports</i></p>
+  <p><b>Ideal para chatbots, aplicações web e mobile de fãs</b></p>
 
 ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![Fastify](https://img.shields.io/badge/Fastify-202020?style=for-the-badge&logo=fastify&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 
 </div>
 
@@ -25,6 +26,7 @@ Perfeita para integrações com chatbots, aplicações web ou mobile dedicadas a
 | 🚄 **Fastify**              | Servidor web de alta performance                 |
 | 🔍 **HLTV Scraping**        | Utilizando a biblioteca gigobyte/HLTV para dados |
 | 💾 **In-memory Cache**      | Para resposta ultrarrápida                       |
+| 🐳 **Docker**               | Containerização para fácil implantação           |
 
 ## 📚 Instalação e Execução
 
@@ -32,7 +34,6 @@ Perfeita para integrações com chatbots, aplicações web ou mobile dedicadas a
 
 - [Node.js](https://nodejs.org/) (v22.14.0 ou superior)
 - npm (geralmente vem com o Node.js)
-
 
 ```bash
 # Clone o repositório
@@ -47,6 +48,20 @@ npm install
 
 # Inicie o servidor de desenvolvimento
 npm run dev
+```
+
+✅ A API estará disponível em: `http://localhost:3000/api/v1/furia`
+
+## 🐳 Execução com Docker
+
+Para maior portabilidade e facilidade de implantação, você pode utilizar Docker:
+
+```bash
+# Construa a imagem Docker
+docker build -t furia-api .
+
+# Execute o container
+docker run -p 3000:3000 furia-api
 ```
 
 ✅ A API estará disponível em: `http://localhost:3000/api/v1/furia`
@@ -98,7 +113,6 @@ npm run dev
 
 ```json
 {
-  {
   "coach": {
     "id": 24267,
     "name": "sidde",
@@ -107,8 +121,7 @@ npm run dev
     "type": "Coach"
   }
 }
-}
-````
+```
 
 ## 🛡️ Tratamento de Erros
 
@@ -128,11 +141,12 @@ _Projeto desenvolvido para o desafio Experiência Conversacional FURIA_
 
 ✅ API 100% funcional e cacheada  
 ✅ Pronta para produção  
-✅ Testes realizados em ambientes reais
+✅ Testes realizados em ambientes reais  
+✅ Containerização Docker completa
 
 ---
 
 <div align="center">
-    <h3>🔥 FURIA CS2 FANBOT - API 🔥</h3>
-    <p><i>Este projeto foi desenvolvido para fins acadêmicos e demonstração de habilidades técnicas em APIs modernas, scraping seguro e arquitetura REST.</i></p>
+  <h3>🔥 FURIA CS2 FANBOT - API 🔥</h3>
+  <p><i>Este projeto foi desenvolvido para fins acadêmicos e demonstração de habilidades técnicas em APIs modernas, scraping seguro e arquitetura REST.</i></p>
 </div>
