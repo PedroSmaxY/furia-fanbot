@@ -6,7 +6,7 @@ import { apiDocumentation } from "../docs/api-documentation.js";
 
 export async function registerRoutes(app: FastifyInstance) {
   await app.register(registerPlayerRoutes, { prefix: "/players" });
-  await app.register(registerStatsRoutes, { prefix: "/stats" });
+  await app.register(registerStatsRoutes, { prefix: "/team/stats" });
   await app.register(registerTeamRoutes, { prefix: "/team" });
 
   app.get("/", async (request, reply) => {
