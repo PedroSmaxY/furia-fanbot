@@ -15,10 +15,11 @@ export const apiDocumentation = {
       "Notícias recentes sobre a FURIA (use /news?limit=X para especificar quantidade)",
     "/api/v1/furia/team/summary":
       "Resumo completo com informações da equipe FURIA",
-    "/api/v1/furia/stats": "Estatísticas completas da FURIA",
-    "/api/v1/furia/stats/overview": "Visão geral das estatísticas da FURIA",
-    "/api/v1/furia/stats/maps": "Estatísticas da FURIA por mapas",
-    "/api/v1/furia/stats/matches":
+    "/api/v1/furia/team/stats": "Estatísticas completas da FURIA",
+    "/api/v1/furia/team/stats/overview":
+      "Visão geral das estatísticas da FURIA",
+    "/api/v1/furia/team/stats/maps": "Estatísticas da FURIA por mapas",
+    "/api/v1/furia/team/stats/matches":
       "Histórico de partidas recentes da FURIA (use /matches?limit=X para especificar quantidade)",
   },
   endpoints: [
