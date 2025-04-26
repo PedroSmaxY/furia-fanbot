@@ -1,17 +1,21 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { FullTeam, HLTV } from "hltv";
 import { FullTeamStats } from "hltv/lib/endpoints/getTeamStats.js";
-
-const TEAM_ID = 8297;
+import {
+  getTeamMaps,
+  getTeamMatches,
+  getTeamOverview,
+  getTeamStats,
+} from "../services/team-service.js";
 
 export async function registerStatsRoutes(app: FastifyInstance) {
   app.get("/", async (_, reply: FastifyReply) => {
     try {
-      const teamStats: FullTeamStats = await HLTV.getTeamStats({
-        id: TEAM_ID,
-      });
+      const teamStats: FullTeamStats = await getTeamStats();
 
-      return reply.send({ stats: teamStats });
+      const response = { stats: teamStats };
+
+      return reply.send(response);
     } catch (error) {
       app.log.error(error);
       return reply.status(500).send({ error: "Failed to fetch team matches" });
@@ -20,11 +24,11 @@ export async function registerStatsRoutes(app: FastifyInstance) {
 
   app.get("/overview", async (_, reply: FastifyReply) => {
     try {
-      const teamStats: FullTeamStats = await HLTV.getTeamStats({
-        id: TEAM_ID,
-      });
+      const teamOverview = await getTeamOverview();
 
-      return reply.send({ overview: teamStats.overview });
+      const response = { overview: teamOverview };
+
+      return reply.send(response);
     } catch (error) {
       app.log.error(error);
       return reply.status(500).send({ error: "Failed to fetch team matches" });
@@ -33,11 +37,11 @@ export async function registerStatsRoutes(app: FastifyInstance) {
 
   app.get("/maps", async (_, reply: FastifyReply) => {
     try {
-      const teamStats: FullTeamStats = await HLTV.getTeamStats({
-        id: TEAM_ID,
-      });
+      const teamMapStats = await getTeamMaps();
 
-      return reply.send({ stats: teamStats.mapStats });
+      const response = { maps: teamMapStats };
+
+      return reply.send(response);
     } catch (error) {
       app.log.error(error);
       return reply.status(500).send({ error: "Failed to fetch team matches" });
@@ -48,23 +52,11 @@ export async function registerStatsRoutes(app: FastifyInstance) {
     const { limit = 5 } = request.query as { limit: number };
 
     try {
-      const teamStats: FullTeamStats = await HLTV.getTeamStats({
-        id: TEAM_ID,
-      });
-      const recent = teamStats.matches.slice(0, limit);
+      const teamMatches = await getTeamMatches(limit);
 
-      const formattedMatches = recent.map((match) => ({
-        date: new Date(match.date).toLocaleDateString("pt-BR"),
-        opponent: match.team2.name,
-        map: match.map.replace("de_", " ").trim(),
-        score: `${match.result.team1}-${match.result.team2}`,
-        eventName: match.event.name,
-      }));
+      const response = { total: teamMatches.length, matches: teamMatches };
 
-      return reply.send({
-        total: formattedMatches.length,
-        matches: formattedMatches,
-      });
+      return reply.send(response);
     } catch (error) {
       app.log.error(error);
       return reply.status(500).send({ error: "Failed to fetch team matches" });
