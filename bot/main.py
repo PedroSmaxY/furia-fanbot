@@ -2,8 +2,8 @@ from dotenv import load_dotenv
 import telebot
 from os import getenv
 
-from src.handlers.resumo import resumo_handler
-from src.handlers.start import start_handler
+from src.handlers.resumo_handler import resumo_handler
+from src.handlers.start_handler import start_handler
 
 load_dotenv()
 
