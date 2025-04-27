@@ -1,14 +1,19 @@
+from telebot import TeleBot
+
 from src.services.api_client import get_summary
 
 
-def resumo_handler(bot):
+def resumo_handler(bot: TeleBot):
     @bot.message_handler(commands=["resumo"])
     def send_summary(message):
         summary = get_summary()
+
         best_maps = sorted(summary.maps, key=lambda map_element: (map_element.winRate * map_element.played),
                            reverse=True)[
                     :3]
+
         lasts_achievements = summary.achievements[:3]
+
         msg = f"""
 🏴 FURIA eSports — *#{summary.ranking.current} no ranking mundial*
 
@@ -40,5 +45,6 @@ def resumo_handler(bot):
         bot.send_message(
             message.chat.id,
             msg.strip(),
-            parse_mode="Markdown"
+            parse_mode="Markdown",
+            disable_web_page_preview=True,
         )
