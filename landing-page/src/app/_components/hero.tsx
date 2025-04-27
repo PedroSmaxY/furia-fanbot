@@ -3,6 +3,7 @@ import { HandWaving, TelegramLogo } from "@phosphor-icons/react/dist/ssr";
 import { BotIcon, CalendarSync, ChartArea } from "lucide-react";
 import FuriaLogo from "../../../public/furia-logo.png";
 import Image from "next/image";
+import Link from "next/link";
 
 export function Hero() {
   return (
@@ -20,19 +21,20 @@ export function Hero() {
               <span className="text-blue-400 font-semibold text-sm uppercase tracking-wider">
                 FuriaGG Fan Community
               </span>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-2 leading-tight">
+              <header className="text-3xl md:text-4xl lg:text-5xl font-bold mt-2 leading-tight">
                 Conheça o novo Bot de Telegram para os
                 <span className="text-blue-400">
                   {" "}
                   fans do time de CS da FuriaGG!
                 </span>
-              </h1>
+              </header>
             </div>
 
             <Image
               src={FuriaLogo}
               alt="Logo do time"
               className="opacity-80 w-52 h-52 lg:w-96 lg:h-96 lg:absolute lg:-z-10 lg:top-40 lg:left-20 lg:opacity-5"
+              priority={true}
             />
 
             <p className="text-gray-300 lg:text-lg leading-relaxed">
@@ -46,7 +48,7 @@ export function Hero() {
               asChild
               className="bg-blue-500 hover:bg-blue-600 w-fit transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30 text-lg py-6"
             >
-              <a
+              <Link
                 href="https://t.me/furiabot"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -55,7 +57,7 @@ export function Hero() {
                 <BotIcon className="h-5 w-5" />
                 <span>Iniciar Conversa</span>
                 <TelegramLogo className="h-5 w-5" />
-              </a>
+              </Link>
             </Button>
           </div>
         </article>
