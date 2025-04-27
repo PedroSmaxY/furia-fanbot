@@ -9,10 +9,27 @@ def players_handler(bot: TeleBot):
     def handle_players(message: telebot.types.Message):
         players = get_roster().players
 
-        bot.send_message(message.chat.id,
-                         f"👥 Elenco da FURIA:\n"
-                         f"1. {players[0].name}\n"
-                         f"2. {players[1].name}\n"
-                         f"3. {players[2].name}\n"
-                         f"4. {players[3].name}\n"
-                         f"5. {players[4].name}\n")
+        msg = f"""
+👥 Elenco da FURIA:
+
+🧩 **Titulares:**
+"""
+        for player in players:
+            if player.type not in ['Benched', 'Coach']:
+                msg += f"   • {player.name}\n"
+
+        msg += f"""
+👨‍🏫 *Coach:*
+"""
+        for player in players:
+            if player.type == 'Coach':
+                msg += f"   • {player.name}\n"
+
+        msg += f"""
+🛋️ *Reservas:*
+"""
+        for player in players:
+            if player.type == 'Benched':
+                msg += f"   • {player.name}\n"
+
+        bot.send_message(message.chat.id, msg, parse_mode='Markdown')
