@@ -2,8 +2,7 @@ from dotenv import load_dotenv
 import telebot
 from os import getenv
 
-from src.handlers.resumo import resumo_handler
-from src.handlers.start import start_handler
+from src.handlers.global_handler import set_handlers
 
 load_dotenv()
 
@@ -11,8 +10,7 @@ API_KEY = getenv("API_KEY")
 
 bot = telebot.TeleBot(API_KEY)
 
-start_handler(bot)
-resumo_handler(bot)
+set_handlers(bot)
 
 
 def main():
