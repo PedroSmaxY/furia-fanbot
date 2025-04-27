@@ -48,7 +48,7 @@ class Ranking:
 
 
 @dataclass
-class RosterMember:
+class SummaryRosterMember:
     name: str
     type: str
 
@@ -56,7 +56,37 @@ class RosterMember:
     def from_dict(cls, data: dict):
         return cls(
             name=data['name'],
-            type=data['type']
+            type=data['type'],
+        )
+
+
+@dataclass
+class RosterMember:
+    id: int
+    name: str
+    type: str
+    maps_played: int
+    time_on_team: str
+
+    @classmethod
+    def from_dict(cls, data: dict):
+        return cls(
+            name=data['name'],
+            type=data['type'],
+            maps_played=data['mapsPlayed'],
+            time_on_team=data['timeOnTeam'],
+            id=data['id']
+        )
+
+
+@dataclass
+class Roster:
+    players: List[RosterMember]
+
+    @classmethod
+    def from_dict(cls, data: dict):
+        return cls(
+            players=[RosterMember.from_dict(m) for m in data['players']]
         )
 
 
@@ -141,7 +171,7 @@ class Achievement:
 class Summary:
     info: TeamInfo
     ranking: Ranking
-    roster: List[RosterMember]
+    roster: List[SummaryRosterMember]
     coach: Coach
     stats: Stats
     maps: List[MapStats]
@@ -150,11 +180,11 @@ class Summary:
     @classmethod
     def from_dict(cls, data: dict):
         return cls(
-            info=TeamInfo.from_dict(data['info']),
-            ranking=Ranking.from_dict(data['ranking']),
-            roster=[RosterMember.from_dict(m) for m in data['roster']],
-            coach=Coach.from_dict(data['coach']),
-            stats=Stats.from_dict(data['stats']),
-            maps=[MapStats.from_dict(m) for m in data['maps']],
-            achievements=[Achievement.from_dict(a) for a in data['achievements']]
+            info=TeamInfo.from_dict(data['summary']['info']),
+            ranking=Ranking.from_dict(data['summary']['ranking']),
+            roster=[SummaryRosterMember.from_dict(m) for m in data['summary']['roster']],
+            coach=Coach.from_dict(data['summary']['coach']),
+            stats=Stats.from_dict(data['summary']['stats']),
+            maps=[MapStats.from_dict(m) for m in data['summary']['maps']],
+            achievements=[Achievement.from_dict(a) for a in data['summary']['achievements']]
         )
