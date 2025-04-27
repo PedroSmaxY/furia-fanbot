@@ -70,13 +70,6 @@ export const metadata: Metadata = {
   icons: {
     icon: [{ url: FuriaLogo.src }],
     apple: [{ url: FuriaLogo.src }],
-    other: [
-      {
-        rel: "mask-icon",
-        url: "/safari-pinned-tab.svg",
-        color: "#0F63FF",
-      },
-    ],
   },
   manifest: "/site.webmanifest",
 };
