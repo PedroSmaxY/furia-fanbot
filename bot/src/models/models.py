@@ -220,3 +220,29 @@ class MatchesResponse:
             total=data['total'],
             matches=[Match.from_dict(m) for m in data['matches']]
         )
+
+
+@dataclass
+class News:
+    name: str
+    link: str
+
+    @classmethod
+    def from_dict(cls, data: dict):
+        return cls(
+            name=data['name'],
+            link=data['link']
+        )
+
+
+@dataclass
+class NewsResponse:
+    total: int
+    news: List[News]
+
+    @classmethod
+    def from_dict(cls, data: dict):
+        return cls(
+            total=int(data['total']),
+            news=[News.from_dict(n) for n in data['news']]
+        )
