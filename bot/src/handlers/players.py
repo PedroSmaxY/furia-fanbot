@@ -5,7 +5,7 @@ from src.services.api_client import get_roster
 
 
 def players_handler(bot: TeleBot):
-    @bot.message_handler(commands=['players'])
+    @bot.message_handler(commands=['players', 'elenco'])
     def handle_players(message: telebot.types.Message):
         players = get_roster().players
 
