@@ -188,3 +188,35 @@ class Summary:
             maps=[MapStats.from_dict(m) for m in data['summary']['maps']],
             achievements=[Achievement.from_dict(a) for a in data['summary']['achievements']]
         )
+
+
+@dataclass
+class Match:
+    date: str
+    opponent: str
+    map: str
+    score: str
+    eventName: str
+
+    @classmethod
+    def from_dict(cls, data: dict):
+        return cls(
+            date=data['date'],
+            opponent=data['opponent'],
+            map=data['map'],
+            score=data['score'],
+            eventName=data['eventName']
+        )
+
+
+@dataclass
+class MatchesResponse:
+    total: int
+    matches: List[Match]
+
+    @classmethod
+    def from_dict(cls, data: dict):
+        return cls(
+            total=data['total'],
+            matches=data['matches']
+        )
