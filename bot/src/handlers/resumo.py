@@ -4,7 +4,7 @@ from src.services.api_client import get_summary
 
 
 def resumo_handler(bot: TeleBot):
-    @bot.message_handler(commands=['resumo', 'resume'])
+    @bot.message_handler(commands=['resumo', 'resume', 'stats'])
     def send_summary(message):
         summary = get_summary()
 
@@ -21,6 +21,7 @@ def resumo_handler(bot: TeleBot):
 
 📸 Redes sociais:
     - [Instagram]({summary.info.instagram})
+    - [WhatsApp](https://wa.me/5511993404466)
     - [Facebook](https://www.facebook.com/furiagg)
     - [TikTok](https://www.tiktok.com/@furiagg)
     - [Youtube](https://www.youtube.com/@FURIAgg)
