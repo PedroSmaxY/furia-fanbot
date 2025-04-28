@@ -40,6 +40,11 @@ def start_handler(bot: TeleBot):
         bot.answer_callback_query(call.id)
 
         command = call.data[4:]
+
+        if command == "start":
+            handle_start(call.message)
+            return
+
         command_map = {
             "resumo": "/resumo",
             "elenco": "/elenco",
