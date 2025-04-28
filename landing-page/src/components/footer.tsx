@@ -7,6 +7,7 @@ import {
   FacebookLogo,
   TwitchLogo,
   YoutubeLogo,
+  WhatsappLogo,
 } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 
@@ -31,7 +32,7 @@ export function Footer() {
               asChild
             >
               <a
-                href="https://t.me/furiabot"
+                href="https://t.me/furiacs2_pedrosmaxy_bot"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -46,6 +47,13 @@ export function Footer() {
             <div>
               <h4 className="font-medium mb-4 text-gray-100">Conecte-se</h4>
               <div className="flex space-x-4 mt-2">
+                <Link
+                  href="https://wa.me/5511993404466"
+                  target="_blank"
+                  className="hover:text-blue-400 transition-colors p-2 bg-gray-800 rounded-full hover:bg-gray-700"
+                >
+                  <WhatsappLogo className="h-5 w-5" />
+                </Link>
                 <Link
                   href="https://x.com/FURIA"
                   target="_blank"

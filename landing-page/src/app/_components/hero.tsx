@@ -49,7 +49,7 @@ export function Hero() {
               className="bg-blue-500 hover:bg-blue-600 w-fit transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30 text-lg py-6"
             >
               <Link
-                href="https://t.me/furiabot"
+                href="https://t.me/furiacs2_pedrosmaxy_bot"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3"
