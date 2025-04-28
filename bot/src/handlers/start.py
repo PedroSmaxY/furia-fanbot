@@ -1,19 +1,19 @@
-import telebot.types
-from telebot import TeleBot
+from telebot import TeleBot, types
 
 
 def start_handler(bot: TeleBot):
     @bot.message_handler(commands=['start'])
-    def handle_start(message: telebot.types.Message):
+    def handle_start(message: types.Message):
         team_logo = "https://apiesltv.imgix.net/images/team/logo/180_6389fd40-d1b3-4bd3-9a64-6ede7e24bd38.png?auto=compress&w=400"
 
-        markup = telebot.types.InlineKeyboardMarkup(row_width=2)
+        markup = types.InlineKeyboardMarkup(row_width=2)
         markup.add(
-            telebot.types.InlineKeyboardButton("📊 Resumo", callback_data="cmd_resumo"),
-            telebot.types.InlineKeyboardButton("👥 Elenco", callback_data="cmd_elenco"),
-            telebot.types.InlineKeyboardButton("📰 Notícias", callback_data="cmd_noticias"),
-            telebot.types.InlineKeyboardButton("🎮 Partidas", callback_data="cmd_partidas"),
-            telebot.types.InlineKeyboardButton("ℹ️ Informações", callback_data="cmd_info")
+            types.InlineKeyboardButton("📊 Resumo", callback_data="cmd_resumo"),
+            types.InlineKeyboardButton("👥 Elenco", callback_data="cmd_elenco"),
+            types.InlineKeyboardButton("📰 Notícias", callback_data="cmd_noticias"),
+            types.InlineKeyboardButton("🎮 Partidas", callback_data="cmd_partidas"),
+            types.InlineKeyboardButton("⏳ Próximas Partidas", callback_data="cmd_proximaspartidas"),
+            types.InlineKeyboardButton("ℹ️ Informações", callback_data="cmd_info")
         )
 
         welcome_text = (
@@ -25,6 +25,7 @@ def start_handler(bot: TeleBot):
             "• /elenco - Jogadores atuais da equipe\n"
             "• /news - Últimas notícias e atualizações\n"
             "• /partidas - Últimos resultados\n"
+            "• /proximaspartidas - Próximas partidas agendadas\n"
             "• /info - Informações sobre a organização\n\n"
             "Escolha uma opção abaixo ou digite um comando para começar:"
         )
@@ -51,12 +52,13 @@ def start_handler(bot: TeleBot):
             "resumo": "/resumo",
             "elenco": "/elenco",
             "partidas": "/partidas",
+            "proximaspartidas": "/proximaspartidas",
             "noticias": "/news",
             "info": "/info"
         }
 
         if command in command_map:
-            simulated_message = telebot.types.Message(
+            simulated_message = types.Message(
                 message_id=call.message.message_id,
                 from_user=call.from_user,
                 date=call.message.date,
@@ -67,5 +69,6 @@ def start_handler(bot: TeleBot):
             )
 
             simulated_message.text = command_map[command]
+            print(f"Simulated message: {simulated_message.text}")
 
             bot.process_new_messages([simulated_message])
