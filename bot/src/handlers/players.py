@@ -7,30 +7,30 @@ def players_handler(bot: TeleBot):
     def handle_players(message: types.Message):
         players = get_roster().players
 
-        msg = f"""
-👥 Elenco da FURIA:
+        msg = "👥 *Elenco da FURIA*\n\n"
 
-🧩 **Titulares:**
-"""
+        msg += "🧩 *Titulares:*\n"
         for player in players:
             if player.type not in ['Benched', 'Coach']:
-                msg += f"   • {player.name}\n"
+                msg += "   • " + player.name + "\n"
 
-        msg += f"""
-👨‍🏫 *Coach:*
-"""
+        msg += "\n👨‍🏫 *Coach:*\n"
         for player in players:
             if player.type == 'Coach':
-                msg += f"   • {player.name}\n"
+                msg += "   • " + player.name + "\n"
 
-        msg += f"""
-🛋️ *Reservas:*
-"""
+        msg += "\n🛋️ *Reservas:*\n"
         for player in players:
             if player.type == 'Benched':
-                msg += f"   • {player.name}\n"
+                msg += "   • " + player.name + "\n"
 
         markup = types.InlineKeyboardMarkup()
         markup.add(types.InlineKeyboardButton("🏠 Voltar ao Menu Principal", callback_data="cmd_start"))
 
-        bot.send_message(message.chat.id, msg, reply_markup=markup, parse_mode='Markdown')
+        bot.send_message(
+            message.chat.id,
+            msg.strip(),
+            reply_markup=markup,
+            parse_mode='Markdown',
+            disable_web_page_preview=True
+        )

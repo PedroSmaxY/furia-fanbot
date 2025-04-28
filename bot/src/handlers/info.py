@@ -7,40 +7,40 @@ def info_handler(bot: TeleBot):
     def handle_info(message: types.Message):
         summary = get_summary()
 
-        msg = f"""
-*ℹ️ Informações sobre a FURIA eSports*
+        msg = "*ℹ️ Informações sobre a FURIA eSports*\n\n"
 
-*🏴 Sobre:*
-A FURIA é uma organização brasileira de esports fundada em 2017, que compete em diversos jogos como CS:GO, Valorant, Rainbow Six, entre outros.
+        msg += "*🏴 Sobre:*\n"
+        msg += "A FURIA é uma organização brasileira de esports fundada em 2017, que compete em diversos jogos como CS:GO, Valorant, Rainbow Six, entre outros.\n\n"
 
-*🌍 Localização:*
-• Sede principal: São Paulo, Brasil
-• Centro de treinamento na América do Norte
+        msg += "*🌍 Localização:*\n"
+        msg += "• Sede principal: São Paulo, Brasil\n"
+        msg += "• Centro de treinamento na América do Norte\n\n"
 
-*🏆 Conquistas gerais:*
-• #{summary.ranking.current} no ranking mundial
-• {len(summary.achievements)} conquistas registradas
-• {summary.stats.wins} vitórias em {summary.stats.mapsPlayed} mapas jogados
+        msg += "*🏆 Conquistas gerais:*\n"
+        msg += "• #" + str(summary.ranking.current) + " no ranking mundial\n"
+        msg += "• " + str(len(summary.achievements)) + " conquistas registradas\n"
+        msg += "• " + str(summary.stats.wins) + " vitórias em " + str(summary.stats.mapsPlayed) + " mapas jogados\n\n"
 
-*💰 Patrocinadores:*
-• Adidas
-• Cruzeiro do Sul
-• Lenovo
-• PokerStars
-• Red Bull
-• Hellmann's
+        msg += "*💰 Patrocinadores:*\n"
+        msg += "• Adidas\n"
+        msg += "• Cruzeiro do Sul\n"
+        msg += "• Lenovo\n"
+        msg += "• PokerStars\n"
+        msg += "• Red Bull\n"
+        msg += "• Hellmann's\n\n"
 
-*📱 Contato e redes:*
-• Site: [www.furia.gg](https://www.furia.gg/)
-• Instagram: [{summary.info.instagram.replace("https://www.", "")}]({summary.info.instagram})
-• Facebook: [facebook.com/furiagg](https://www.facebook.com/furiagg)
-• TikTok: [tiktok.com/@furiagg](https://www.tiktok.com/@furiagg)
-• YouTube: [youtube.com/@FURIAgg](https://www.youtube.com/@FURIAgg)
-• Twitch: [twitch.tv/furiatv](https://www.twitch.tv/furiatv)
-• X: [x.com/FURIA](https://x.com/FURIA)
+        msg += "*📱 Contato e redes:*\n"
+        msg += "• Site: [www.furia.gg](https://www.furia.gg/)\n"
+        msg += "• WhatsApp: [Contato Inteligente](https://wa.me/5511993404466) (Closed Beta)\n"
+        msg += "• Instagram: [" + summary.info.instagram.replace("https://www.",
+                                                                 "") + "](" + summary.info.instagram + ")\n"
+        msg += "• Facebook: [facebook.com/furiagg](https://www.facebook.com/furiagg)\n"
+        msg += "• TikTok: [tiktok.com/@furiagg](https://www.tiktok.com/@furiagg)\n"
+        msg += "• YouTube: [youtube.com/@FURIAgg](https://www.youtube.com/@FURIAgg)\n"
+        msg += "• Twitch: [twitch.tv/furiatv](https://www.twitch.tv/furiatv)\n"
+        msg += "• X: [x.com/FURIA](https://x.com/FURIA)\n\n"
 
-*Use /elenco para ver os jogadores atuais da equipe*
-"""
+        msg += "*Use /elenco para ver os jogadores atuais da equipe*"
 
         team_logo = "https://apiesltv.imgix.net/images/team/logo/180_6389fd40-d1b3-4bd3-9a64-6ede7e24bd38.png?auto=compress&w=400"
 
