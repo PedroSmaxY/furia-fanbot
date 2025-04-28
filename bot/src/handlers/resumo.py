@@ -4,7 +4,7 @@ from src.services.api_client import get_summary
 
 
 def resumo_handler(bot: TeleBot):
-    @bot.message_handler(commands=["resumo"])
+    @bot.message_handler(commands=['resumo', 'resume'])
     def send_summary(message):
         summary = get_summary()
 
