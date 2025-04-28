@@ -75,4 +75,4 @@ def clear_cache():
 
 
 if __name__ == "__main__":
-    print(get_future_matches())
+    print(get_team())
