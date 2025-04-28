@@ -11,8 +11,8 @@ def matches_handler(bot: TeleBot):
 
         if matches.total > 0:
             for match in matches.matches:
-                furia_score = int(match.score.split("-")[0])
-                opponent_score = int(match.score.split("-")[1])
+                furia_score = match.score.split("-")[0]
+                opponent_score = match.score.split("-")[1]
 
                 if furia_score > opponent_score:
                     result_emoji = "✅"
