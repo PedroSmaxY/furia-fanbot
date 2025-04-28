@@ -1,7 +1,6 @@
 from dotenv import load_dotenv
 from os import getenv
 import httpx
-
 from src.models.pandascore_models import Team
 
 load_dotenv()
@@ -29,7 +28,6 @@ def get_pandascore_data(endpoint, params=None):
 
 def get_team() -> Team:
     team = get_pandascore_data(endpoint="/teams/furia")
-
     return Team.from_dict(team)
 
 
