@@ -6,9 +6,9 @@ from src.handlers.global_handler import set_handlers
 
 load_dotenv()
 
-API_KEY = getenv("API_KEY")
+TELEGRAMBOT_KEY = getenv("TELEGRAMBOT_KEY")
 
-bot = TeleBot(API_KEY)
+bot = TeleBot(TELEGRAMBOT_KEY)
 
 set_handlers(bot)
 
