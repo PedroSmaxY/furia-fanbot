@@ -6,10 +6,13 @@ load_dotenv()
 
 PANDASCORE_API_KEY = getenv('PANDASCORE_API_KEY')
 
+headers = {'Authorization': 'Bearer ' + PANDASCORE_API_KEY}
+
 
 def get_matches():
-    url = 'https://api.pandascore.co/matches?sort=-modified_at&token=' + PANDASCORE_API_KEY
+    url = 'https://api.pandascore.co/matches?sort=-modified_at'
     client = httpx.Client()
+    client.headers.update(headers)
     response = client.get(url)
     response.raise_for_status()
     data = response.json()
