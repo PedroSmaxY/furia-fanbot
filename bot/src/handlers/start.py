@@ -13,6 +13,7 @@ def start_handler(bot: TeleBot):
             types.InlineKeyboardButton("📰 Notícias", callback_data="cmd_noticias"),
             types.InlineKeyboardButton("🎮 Partidas", callback_data="cmd_partidas"),
             types.InlineKeyboardButton("⏳ Próximas Partidas", callback_data="cmd_proximaspartidas"),
+            types.InlineKeyboardButton("🔔 Notificações", callback_data="cmd_notificacoes"),
             types.InlineKeyboardButton("ℹ️ Informações", callback_data="cmd_info")
         )
 
@@ -26,6 +27,7 @@ def start_handler(bot: TeleBot):
             "• /news - Últimas notícias e atualizações\n"
             "• /partidas - Últimos resultados\n"
             "• /proximaspartidas - Próximas partidas agendadas\n"
+            "• /notificacoes - Ativar/desativar alertas de novas partidas\n"
             "• /info - Informações sobre a organização\n\n"
             "Escolha uma opção abaixo ou digite um comando para começar:"
         )
@@ -53,6 +55,7 @@ def start_handler(bot: TeleBot):
             "elenco": "/elenco",
             "partidas": "/partidas",
             "proximaspartidas": "/proximaspartidas",
+            "notificacoes": "/notificacoes",
             "noticias": "/news",
             "info": "/info"
         }
