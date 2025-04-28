@@ -6,7 +6,10 @@ load_dotenv()
 
 PANDASCORE_API_KEY = getenv('PANDASCORE_API_KEY')
 
-headers = {'Authorization': 'Bearer ' + PANDASCORE_API_KEY}
+headers = {
+    'accept': 'application/json',
+    'authorization': 'Bearer ' + PANDASCORE_API_KEY
+}
 
 
 def get_matches():
