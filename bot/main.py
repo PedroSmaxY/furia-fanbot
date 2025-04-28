@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-import telebot
+from telebot import TeleBot
 from os import getenv
 
 from src.handlers.global_handler import set_handlers
@@ -8,7 +8,7 @@ load_dotenv()
 
 API_KEY = getenv("API_KEY")
 
-bot = telebot.TeleBot(API_KEY)
+bot = TeleBot(API_KEY)
 
 set_handlers(bot)
 
