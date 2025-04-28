@@ -1,6 +1,4 @@
-import telebot
 from telebot import TeleBot, types
-
 from src.services.api_client import get_roster
 
 
