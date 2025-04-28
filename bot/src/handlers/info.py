@@ -42,9 +42,13 @@ A FURIA é uma organização brasileira de esports fundada em 2017, que compete 
 *Use /elenco para ver os jogadores atuais da equipe*
 """
 
+        markup = types.InlineKeyboardMarkup()
+        markup.add(types.InlineKeyboardButton("🏠 Voltar ao Menu Principal", callback_data="cmd_start"))
+
         bot.send_message(
             message.chat.id,
             msg.strip(),
             parse_mode="Markdown",
+            reply_markup=markup,
             disable_web_page_preview=True,
         )

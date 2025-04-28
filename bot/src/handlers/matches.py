@@ -21,7 +21,6 @@ def matches_handler(bot: TeleBot):
                 else:
                     result_emoji = "⚖️"
 
-                # Formatar a mensagem para cada partida
                 msg += f"*{match.date}* {result_emoji}\n"
                 msg += f"🆚 *FURIA* vs *{match.opponent}*\n"
                 msg += f"🗺️ Mapa: {match.map.capitalize()}\n"
@@ -30,10 +29,13 @@ def matches_handler(bot: TeleBot):
         else:
             msg += "Não há partidas recentes para mostrar."
 
-        # Enviar a mensagem formatada
+        markup = types.InlineKeyboardMarkup()
+        markup.add(types.InlineKeyboardButton("🏠 Voltar ao Menu Principal", callback_data="cmd_start"))
+
         bot.send_message(
             message.chat.id,
             msg.strip(),
             parse_mode="Markdown",
+            reply_markup=markup,
             disable_web_page_preview=True
         )

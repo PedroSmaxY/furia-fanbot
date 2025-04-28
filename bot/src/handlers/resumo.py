@@ -49,9 +49,13 @@ def resumo_handler(bot: TeleBot):
         else:
             msg += "\n• Sem conquistas recentes"
 
+        markup = types.InlineKeyboardMarkup()
+        markup.add(types.InlineKeyboardButton("🏠 Voltar ao Menu Principal", callback_data="cmd_start"))
+
         bot.send_message(
             message.chat.id,
             msg.strip(),
             parse_mode="Markdown",
+            reply_markup=markup,
             disable_web_page_preview=True,
         )
