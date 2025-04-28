@@ -7,36 +7,31 @@ load_dotenv()
 API_URL = os.getenv("API_URL")
 
 
-def get_summary() -> Summary:
+def get_api_data(endpoint: str) -> dict:
     client = httpx.Client()
-    response = client.get(f"{API_URL}/team/summary")
+    response = client.get(f"{API_URL}/{endpoint}")
     response.raise_for_status()
-    data = response.json()
-    return Summary.from_dict(data)
+    return response.json()
+
+
+def get_summary() -> Summary:
+    summary = get_api_data('team/summary')
+    return Summary.from_dict(summary)
 
 
 def get_roster() -> Roster:
-    client = httpx.Client()
-    response = client.get(f"{API_URL}/team/roster")
-    response.raise_for_status()
-    data = response.json()
-    return Roster.from_dict(data)
+    roster = get_api_data('team/roster')
+    return Roster.from_dict(roster)
 
 
 def get_matches() -> MatchesResponse:
-    client = httpx.Client()
-    response = client.get(f"{API_URL}/team/stats/matches")
-    response.raise_for_status()
-    data = response.json()
-    return MatchesResponse.from_dict(data)
+    matches = get_api_data('team/stats/matches')
+    return MatchesResponse.from_dict(matches)
 
 
 def get_news() -> NewsResponse:
-    client = httpx.Client()
-    response = client.get(f"{API_URL}/team/news")
-    response.raise_for_status()
-    data = response.json()
-    return NewsResponse.from_dict(data)
+    news = get_api_data('team/news')
+    return NewsResponse.from_dict(news)
 
 
 if __name__ == "__main__":
