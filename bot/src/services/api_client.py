@@ -1,7 +1,7 @@
 import httpx
 import os
 from dotenv import load_dotenv
-from src.models.models import Summary, Roster
+from src.models.models import Summary, Roster, MatchesResponse
 
 load_dotenv()
 API_URL = os.getenv("API_URL")
@@ -21,6 +21,14 @@ def get_roster() -> Roster:
     response.raise_for_status()
     data = response.json()
     return Roster.from_dict(data)
+
+
+def get_matches() -> MatchesResponse:
+    client = httpx.Client()
+    response = client.get(f"{API_URL}/team/stats/matches")
+    response.raise_for_status()
+    data = response.json()
+    return MatchesResponse.from_dict(data)
 
 
 if __name__ == "__main__":
