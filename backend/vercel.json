@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "name": "furia-fanbot-backend",
+  "builds": [
+    {
+      "src": "src/server.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "src/server.ts"
+    }
+  ]
+}
