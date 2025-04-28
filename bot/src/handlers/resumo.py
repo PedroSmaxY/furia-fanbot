@@ -5,7 +5,6 @@ from src.services.api_client import get_summary
 def resumo_handler(bot: TeleBot):
     @bot.message_handler(commands=['resumo', 'resume', 'stats'])
     def send_summary(message: types.Message):
-
         summary = get_summary()
 
         best_maps = sorted(
@@ -16,41 +15,32 @@ def resumo_handler(bot: TeleBot):
 
         recent_achievements = summary.achievements[:3]
 
-        msg = f"""
-*🏴 FURIA eSports — #{summary.ranking.current} no ranking mundial*
+        msg = "*🏴 FURIA eSports — #" + str(summary.ranking.current) + " no ranking mundial*\n\n"
 
-🖥️ [Site oficial](https://www.furia.gg/)
-📱 [Contato WhatsApp](https://wa.me/5511993404466)
+        msg += "*📊 Estatísticas Gerais:*\n"
+        msg += "• 🗺️ " + str(summary.stats.mapsPlayed) + " mapas jogados\n"
+        msg += "• 🏆 " + str(summary.stats.wins) + " vitórias\n"
+        msg += "• ⚔️ K/D Ratio: " + f"{summary.stats.kdRatio:.2f}\n\n"
 
-*📸 Redes sociais:*
-• [Instagram]({summary.info.instagram})
-• [Facebook](https://www.facebook.com/furiagg)
-• [TikTok](https://www.tiktok.com/@furiagg)
-• [Youtube](https://www.youtube.com/@FURIAgg)
-• [Twitch](https://www.twitch.tv/furiatv)
-• [X](https://x.com/FURIA)
-
-*📊 Estatísticas Gerais:*
-• 🗺️ {summary.stats.mapsPlayed} mapas jogados
-• 🏆 {summary.stats.wins} vitórias
-• ⚔️ K/D Ratio: {summary.stats.kdRatio:.2f}
-
-*🔥 Top Mapas:*"""
-
+        msg += "*🔥 Top Mapas:*\n"
         for i, m in enumerate(best_maps, 1):
             win_rate = f"{m.winRate:.1f}" if isinstance(m.winRate, float) else m.winRate
-            msg += f"\n• {i}. {m.name.capitalize()} — {win_rate}% de vitórias"
+            msg += "• " + str(i) + ". " + m.name.capitalize() + " — " + str(win_rate) + "% de vitórias\n"
 
-        msg += "\n\n*🏅 Últimas Conquistas:*"
-
+        msg += "\n*🏅 Últimas Conquistas:*\n"
         if recent_achievements:
             for achievement in recent_achievements:
-                msg += f"\n• {achievement.event.name.capitalize()}"
+                msg += "• " + achievement.event.name.capitalize() + "\n"
         else:
-            msg += "\n• Sem conquistas recentes"
+            msg += "• Sem conquistas recentes\n"
 
-        markup = types.InlineKeyboardMarkup()
-        markup.add(types.InlineKeyboardButton("🏠 Voltar ao Menu Principal", callback_data="cmd_start"))
+        msg += "\n_Use /info para ver as redes sociais e contatos da FURIA_"
+
+        markup = types.InlineKeyboardMarkup(row_width=2)
+        markup.add(
+            types.InlineKeyboardButton("ℹ️ Informações", callback_data="cmd_info"),
+            types.InlineKeyboardButton("🏠 Menu Principal", callback_data="cmd_start")
+        )
 
         bot.send_message(
             message.chat.id,
