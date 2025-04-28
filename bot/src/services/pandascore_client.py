@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 from os import getenv
 import httpx
-from src.models.pandascore_models import Team
+from src.models.pandascore_models import Team, PlayerDetail
 
 load_dotenv()
 
@@ -31,5 +31,15 @@ def get_team() -> Team:
     return Team.from_dict(team)
 
 
+def get_team_matches():
+    team = get_pandascore_data(endpoint="/teams/furia/matches?future=true&page=&per_page=25")
+    return team
+
+
+def get_player(id_or_slug: str) -> PlayerDetail:
+    player = get_pandascore_data(endpoint=f"/players/{id_or_slug}")
+    return PlayerDetail.from_dict(player)
+
+
 if __name__ == "__main__":
-    print(get_team())
+    print(get_player("fallen"))
