@@ -218,5 +218,5 @@ class MatchesResponse:
     def from_dict(cls, data: dict):
         return cls(
             total=data['total'],
-            matches=data['matches']
+            matches=[Match.from_dict(m) for m in data['matches']]
         )
