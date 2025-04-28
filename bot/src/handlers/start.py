@@ -11,6 +11,7 @@ def start_handler(bot: TeleBot):
         markup.add(
             telebot.types.InlineKeyboardButton("📊 Resumo", callback_data="cmd_resumo"),
             telebot.types.InlineKeyboardButton("👥 Elenco", callback_data="cmd_elenco"),
+            telebot.types.InlineKeyboardButton("📰 Notícias", callback_data="cmd_noticias"),
             telebot.types.InlineKeyboardButton("🎮 Partidas", callback_data="cmd_partidas"),
             telebot.types.InlineKeyboardButton("ℹ️ Informações", callback_data="cmd_info")
         )
@@ -22,6 +23,7 @@ def start_handler(bot: TeleBot):
             "*Comandos disponíveis:*\n"
             "• /resumo - Estatísticas gerais e conquistas\n"
             "• /elenco - Jogadores atuais da equipe\n"
+            "• /news - Últimas notícias e atualizações\n"
             "• /partidas - Últimos resultados\n"
             "• /info - Informações sobre a organização\n\n"
             "Escolha uma opção abaixo ou digite um comando para começar:"
@@ -49,6 +51,7 @@ def start_handler(bot: TeleBot):
             "resumo": "/resumo",
             "elenco": "/elenco",
             "partidas": "/partidas",
+            "noticias": "/news",
             "info": "/info"
         }
 
