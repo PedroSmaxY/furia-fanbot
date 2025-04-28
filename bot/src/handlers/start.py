@@ -2,9 +2,8 @@ from telebot import TeleBot, types
 
 
 def start_handler(bot: TeleBot):
-    @bot.message_handler(commands=['start'])
+    @bot.message_handler(commands=['start', 'help', 'comandos', 'ajuda'])
     def handle_start(message: types.Message):
-        team_logo = "https://apiesltv.imgix.net/images/team/logo/180_6389fd40-d1b3-4bd3-9a64-6ede7e24bd38.png?auto=compress&w=400"
 
         markup = types.InlineKeyboardMarkup(row_width=2)
         markup.add(
@@ -32,10 +31,9 @@ def start_handler(bot: TeleBot):
             "Escolha uma opção abaixo ou digite um comando para começar:"
         )
 
-        bot.send_photo(
+        bot.send_message(
             message.chat.id,
-            team_logo,
-            caption=welcome_text,
+            welcome_text,
             reply_markup=markup,
             parse_mode="Markdown"
         )
