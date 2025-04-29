@@ -82,13 +82,13 @@ export function Hero() {
                 </div>
                 <div className="bg-gray-800 p-3 rounded-lg flex justify-between">
                   <p className="text-sm">
-                    📊 Digite /stats para ver estatísticas
+                    📊 Digite /resumo para ver estatísticas
                   </p>
                   <ChartArea className=" text-gray-500 w-4 h-4" />
                 </div>
                 <div className="bg-gray-800 p-3 rounded-lg flex justify-between">
                   <p className="text-sm">
-                    🗓️ Digite /matches para próximos jogos
+                    🗓️ Digite /proximaspartidas para próximos jogos
                   </p>
                   <CalendarSync className=" text-gray-500 w-4 h-4" />
                 </div>
