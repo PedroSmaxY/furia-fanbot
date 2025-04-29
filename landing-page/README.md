@@ -174,10 +174,10 @@ _Projeto desenvolvido para o desafio Experiência Conversacional FURIA_
 
 ## 🏆 Status do Projeto
 
-✅ Design responsivo completo
-✅ Otimizado para SEO
-✅ Pronto para produção
-✅ Integração com bot de Telegram
+- ✅ Design responsivo completo
+- ✅ Otimizado para SEO
+- ✅ Pronto para produção
+- ✅ Integração com bot de Telegram
 
 ---
 
