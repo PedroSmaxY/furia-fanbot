@@ -15,28 +15,28 @@ export function Features() {
       title: "Estatísticas Detalhadas",
       description:
         "Acesse estatísticas dos jogadores e da equipe FURIA CS2 com um simples comando.",
-      command: "/stats",
+      command: "/resumo",
+    },
+    {
+      icon: <Trophy className="h-10 w-10 text-blue-400" />,
+      title: "Últimos Resultados",
+      description:
+        "Veja os resultados mais recentes das partidas da FURIA CS2.",
+      command: "/partidas",
     },
     {
       icon: <CalendarCheck className="h-10 w-10 text-blue-400" />,
       title: "Calendário de Partidas",
       description:
         "Fique por dentro de todas as próximas partidas e torneios da FURIA CS2.",
-      command: "/matches",
+      command: "/proximaspartidas",
     },
     {
       icon: <Bell className="h-10 w-10 text-blue-400" />,
       title: "Notificações em Tempo Real",
       description:
         "Receba alertas sobre início de partidas, resultados e momentos importantes.",
-      command: "/notify",
-    },
-    {
-      icon: <Trophy className="h-10 w-10 text-blue-400" />,
-      title: "Resultados de Torneios",
-      description:
-        "Acompanhe a performance da FURIA em todos os torneios e campeonatos.",
-      command: "/results",
+      command: "/notificacoes",
     },
     {
       icon: <Newspaper className="h-10 w-10 text-blue-400" />,
@@ -50,7 +50,7 @@ export function Features() {
       title: "Interação Direta",
       description:
         "Converse com o bot e obtenha informações customizadas sobre a FURIA.",
-      command: "/ajuda",
+      command: "/start",
     },
   ];
 
@@ -103,7 +103,7 @@ export function Features() {
               <p className="text-lg">
                 <span className="text-gray-300">Digite </span>
                 <span className="font-mono text-blue-400 font-semibold">
-                  /help
+                  /start
                 </span>
                 <span className="text-gray-300">
                   {" "}
