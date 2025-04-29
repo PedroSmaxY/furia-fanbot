@@ -162,6 +162,46 @@ docker build -t furia-landing .
 docker run -p 3001:3000 furia-landing
 ```
 
+## 🐳 Docker Compose (Solução Integrada)
+
+Para facilitar ainda mais, o projeto inclui um arquivo `docker-compose.yml` que orquestra todos os serviços juntos:
+
+```bash
+# Na raiz do projeto, execute:
+docker-compose up -d
+```
+
+### Serviços Configurados
+
+| Serviço          | Porta | Descrição                        |
+| ---------------- | ----- | -------------------------------- |
+| **backend**      | 3000  | API com dados da FURIA           |
+| **bot**          | N/A   | Bot Telegram integrado com a API |
+| **landing-page** | 3001  | Site de divulgação               |
+
+### Comandos Úteis
+
+```bash
+# Iniciar todos os serviços
+docker-compose up -d
+
+# Ver logs em tempo real
+docker-compose logs -f
+
+# Ver logs de um serviço específico
+docker-compose logs -f bot
+
+# Parar todos os serviços
+docker-compose down
+
+# Reconstruir as imagens (após alterações)
+docker-compose build --no-cache
+```
+
+### Comunicação entre Serviços
+
+Os serviços estão configurados em uma rede interna `furia-network`, permitindo que o bot se comunique automaticamente com a API backend através do hostname `http://backend:3000`.
+
 ## 👨‍💻 Desenvolvedor
 
 **Pedro Henrique Novais**  
