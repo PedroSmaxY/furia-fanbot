@@ -1,0 +1,41 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "3000:3000"
+    networks:
+      - furia-network
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+
+  bot:
+    build:
+      context: ./bot
+    depends_on:
+      - backend
+    env_file:
+      - ./bot/.env
+    environment:
+      - API_BASE_URL=http://backend:3000/api/v1/furia
+    networks:
+      - furia-network
+    restart: unless-stopped
+
+  landing-page:
+    build:
+      context: ./landing-page
+    ports:
+      - "3001:3000"
+    environment:
+      - DEPLOYMENT_ENV=docker
+    networks:
+      - furia-network
+    restart: unless-stopped
+
+networks:
+  furia-network:
+    driver: bridge
