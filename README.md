@@ -166,6 +166,17 @@ docker run -p 3001:3000 furia-landing
 
 Para facilitar ainda mais, o projeto inclui um arquivo `docker-compose.yml` que orquestra todos os serviços juntos:
 
+### Preparação para o Docker Compose
+
+Antes de executar o Docker Compose, certifique-se de configurar corretamente os arquivos de variáveis de ambiente:
+
+1. **Para o Bot Telegram**
+   ```bash
+   # Na pasta bot, crie um arquivo .env com:
+   TELEGRAMBOT_KEY=seu_token_do_telegram_bot
+   PANDASCORE_API_KEY=seu_token_do_pandascore_api
+   ```
+
 ```bash
 # Na raiz do projeto, execute:
 docker-compose up -d
