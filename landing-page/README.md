@@ -179,10 +179,7 @@ _Projeto desenvolvido para o desafio Experiência Conversacional FURIA_
 ✅ Pronto para produção
 ✅ Integração com bot de Telegram
 
----
-
 <div align="center">
   <h3>🔥 FURIA CS2 FANBOT - Landing Page 🔥</h3>
   <p><i>Este projeto foi desenvolvido para fins acadêmicos e demonstração de habilidades técnicas em desenvolvimento front-end moderno com Next.js e TailwindCSS.</i></p>
 </div>
-```
