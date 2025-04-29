@@ -144,18 +144,18 @@ Top Mapas:
 ## 📱 Screenshots
 
 <div align="center">
-    <img src="./screenshots/start_command.png" alt="Comando /start" width="300"/>
+    <img src="https://github.com/user-attachments/assets/bfc749b0-9940-47c7-87e3-c8b2c7020b64" alt="Comando /start" width="300"/>
     <p><i>Tela inicial do bot após o comando /start</i></p>
 </div>
 
 <div align="center">
-    <img src="./screenshots/elenco_command.png" alt="Comando /elenco" width="300"/>
-    <p><i>Visualização do elenco atual da FURIA</i></p>
+    <img src="https://github.com/user-attachments/assets/09de3160-f7de-44cd-8a29-9cb4d31bf1e8" alt="Comando /elenco" width="300"/>
+    <p><i>Visualização do elenco atual da FURIA /elenco</i></p>
 </div>
 
 <div align="center">
-    <img src="./screenshots/partidas_command.png" alt="Comando /partidas" width="300"/>
-    <p><i>Resultados das partidas recentes</i></p>
+    <img src="https://github.com/user-attachments/assets/423b5301-b60d-4ca0-92df-b746227cc844" alt="Comando /partidas" width="300"/>
+    <p><i>Resultados das partidas recentes /partidas</i></p>
 </div>
 
 ## 🔌 Integrações de API
