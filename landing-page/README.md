@@ -70,34 +70,42 @@ yarn dev
 | 🛠️ **Features** | Lista de recursos disponíveis no bot          |
 | 👣 **Footer**   | Rodapé com links sociais e informações legais |
 
-## 📸 Screenshots
-
-<div align="center">
-  <h3>🖥️ Desktop</h3>
-  <img src="./public/screenshots/desktop-hero.png" alt="Hero Section Desktop" width="800"/>
-  <p><i>Seção Hero - Desktop</i></p>
-  
-  <img src="./public/screenshots/desktop-features.png" alt="Features Desktop" width="800"/>
-  <p><i>Seção Features - Desktop</i></p>
-  
-  <h3>📱 Mobile</h3>
-  <div style="display: flex; justify-content: center; gap: 20px;">
-    <div>
-      <img src="./public/screenshots/mobile-hero.png" alt="Hero Section Mobile" width="250"/>
-      <p><i>Seção Hero - Mobile</i></p>
-    </div>
-    <div>
-      <img src="./public/screenshots/mobile-features.png" alt="Features Mobile" width="250"/>
-      <p><i>Seção Features - Mobile</i></p>
-    </div>
-  </div>
-</div>
-
 ## 📱 Design Responsivo
 
 - ✅ Layout adaptável para todos os dispositivos
 - ✅ Experiência fluida em desktops, tablets e smartphones
 - ✅ Menu de navegação otimizado para dispositivos móveis
+
+## 📸 Screenshots
+
+<div align="center">
+  <h3>🖥️ Desktop</h3>
+  <img src="https://github.com/user-attachments/assets/5e6e5f1c-6410-4c58-a10f-9f5819e74520" alt="Hero Section Desktop" width="800"/>
+  <p><i>Seção Hero - Desktop</i></p>
+  <img src="https://github.com/user-attachments/assets/be3a3156-70a8-457e-bd5d-f29c6890095c" alt="Features Desktop" width="800"/>
+  <p><i>Seção Features - Desktop</i></p>
+  <img src="https://github.com/user-attachments/assets/e11c057a-8a66-43a9-92f7-e1b7724dd142" alt="Footer Desktop" width="800"/>
+  <p><i>Seção Footer - Desktop</i></p>
+
+  <h3>📱 Mobile</h3>
+  <div style="display: flex; justify-content: center; gap: 20px;">
+    <div>
+      <div>
+        <img src="https://github.com/user-attachments/assets/32779001-da00-43ec-b5bb-420ec379d863" alt="Hero Section Mobile" width="250"/>
+        <p><i>Seção Hero - Mobile</i></p>
+      </div>
+      <div>
+        <img src="https://github.com/user-attachments/assets/f1372e61-4c2b-4b59-9b34-fb92748b9c58" alt="Features Mobile" width="250"/>
+        <p><i>Seção Features - Mobile</i></p>
+      </div>
+      <div>
+        <img src="https://github.com/user-attachments/assets/05c81f10-3232-4059-aadb-a42d5eb09e4a" alt="Footer Mobile" width="250"/>
+        <p><i>Seção Footer - Mobile</i></p>  
+      </div>
+    </div>
+  </div>
+</div>
+
 
 ## 🎨 Paleta de Cores
 
