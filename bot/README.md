@@ -188,6 +188,8 @@ O bot implementa um robusto sistema de tratamento de erros:
 GitHub: [PedroSmaxY](https://github.com/PedroSmaxY)
 
 <div align="center">
-    <h3>🔥 FURIA CS2 FANBOT - Telegram 🔥</h3>GitHub: [PedroSmaxY](https://github.com/PedroSmaxY)
+    <h3>
+      🔥 FURIA CS2 FANBOT - Telegram 🔥
+    </h3>
     <p><i>Este projeto foi desenvolvido para o desafio Experiência Conversacional FURIA, demonstrando habilidades em integração de APIs esportivas, arquitetura escalável e experiência conversacional para fãs.</i></p>
 </div>
