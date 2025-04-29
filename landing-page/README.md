@@ -12,6 +12,7 @@
 ![Shadcn/ui](https://img.shields.io/badge/shadcn/ui-8A2BE2?style=for-the-badge&2F&logo=shadcnui&color=131316)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![Mobile First](https://img.shields.io/badge/Mobile_First-FF4088?style=for-the-badge&logo=mobile&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 
 </div>
 
@@ -106,7 +107,6 @@ yarn dev
   </div>
 </div>
 
-
 ## 🎨 Paleta de Cores
 
 | Cor             | Hex       | Uso                |
@@ -149,16 +149,34 @@ npm start
 yarn start
 ```
 
+## 🐳 Docker
+
+Para facilitar a implantação e garantir consistência entre ambientes, o projeto pode ser executado via Docker:
+
+### Pré-requisitos
+
+- Docker instalado em sua máquina
+
+### Instruções
+
+```bash
+# Construir a imagem Docker
+docker build -t furia-landing-page .
+
+# Executar o container
+docker run -p 3000:3000 furia-landing-page
+```
+
 ## 👨‍💻 Desenvolvedor
 
-**Pedro Henrique Novais**  
+**Pedro Henrique Novais**
 _Projeto desenvolvido para o desafio Experiência Conversacional FURIA_
 
 ## 🏆 Status do Projeto
 
-✅ Design responsivo completo  
-✅ Otimizado para SEO  
-✅ Pronto para produção  
+✅ Design responsivo completo
+✅ Otimizado para SEO
+✅ Pronto para produção
 ✅ Integração com bot de Telegram
 
 ---
@@ -167,3 +185,4 @@ _Projeto desenvolvido para o desafio Experiência Conversacional FURIA_
   <h3>🔥 FURIA CS2 FANBOT - Landing Page 🔥</h3>
   <p><i>Este projeto foi desenvolvido para fins acadêmicos e demonstração de habilidades técnicas em desenvolvimento front-end moderno com Next.js e TailwindCSS.</i></p>
 </div>
+```
