@@ -102,7 +102,8 @@ export function Footer() {
           <Link
             href="https://github.com/PedroSmaxY/furia-fanbot"
             target="_blank"
-            className="flex items-center gap-1 text-gray-400 hover:text-blue-400 transition-colors"
+            className="flex items-center gap-1 text-gray-400 hover:text-blue-400 transition-colors mt-2 md:mt-0"
+            rel="noopener noreferrer"
           >
             <GithubLogo className="h-4 w-4" />
             <span>Ver no GitHub</span>
