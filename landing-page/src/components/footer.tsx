@@ -8,6 +8,7 @@ import {
   TwitchLogo,
   YoutubeLogo,
   WhatsappLogo,
+  GithubLogo,
 } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 
@@ -97,10 +98,15 @@ export function Footer() {
         <Separator className="my-6 bg-gradient-to-r from-blue-600/20 via-gray-700/20 to-red-600/20" />
 
         <div className="flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
-          <p>
-            © {new Date().getFullYear()} FURIA CS2 FANBOT. Todos os direitos
-            reservados.
-          </p>
+          <p>© {new Date().getFullYear()} FURIA CS2 FANBOT.</p>
+          <Link
+            href="https://github.com/PedroSmaxY/furia-fanbot"
+            target="_blank"
+            className="flex items-center gap-1 text-gray-400 hover:text-blue-400 transition-colors"
+          >
+            <GithubLogo className="h-4 w-4" />
+            <span>Ver no GitHub</span>
+          </Link>
           <p className="mt-2 md:mt-0">
             Projeto acadêmico não oficial. Não afiliado à FURIA Esports.
           </p>
