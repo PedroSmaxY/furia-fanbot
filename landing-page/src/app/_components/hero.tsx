@@ -22,11 +22,13 @@ export function Hero() {
                 FuriaGG Fan Community
               </span>
               <header className="text-3xl md:text-4xl lg:text-5xl font-bold mt-2 leading-tight">
-                Conheça o novo Bot de Telegram para os
-                <span className="text-blue-400">
-                  {" "}
-                  fans do time de CS da FuriaGG!
-                </span>
+                <h1>
+                  Conheça o novo Bot de Telegram para os
+                  <span className="text-blue-400">
+                    {" "}
+                    fans do time de CS da FuriaGG!
+                  </span>
+                </h1>
               </header>
             </div>
 
