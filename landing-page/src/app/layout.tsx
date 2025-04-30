@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import FuriaLogo from "../../public/furia-logo.png";
 import "./globals.css";
@@ -13,6 +13,11 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   title: "FURIA CS2 FANBOT | Acompanhe o Time da FURIA pelo Telegram",
@@ -63,15 +68,10 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-  },
   icons: {
     icon: [{ url: FuriaLogo.src }],
     apple: [{ url: FuriaLogo.src }],
   },
-  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
