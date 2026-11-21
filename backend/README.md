@@ -1,7 +1,7 @@
 # 🔥 FURIA CS2 - API
 
 <div align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/pt/f/f9/Furia_Esports_logo.png" alt="FURIA Logo" width="200"/>
+  <img src="../assets/furia-logo.png" alt="FURIA Logo" width="200"/>
   <h3>📊 Dados e Estatísticas para Fãs da FURIA Esports 📊</h3>
   <p><i>API completa e atualizada sobre o time de CS2 FURIA Esports</i></p>
   <p><b>Ideal para chatbots, aplicações web e mobile de fãs</b></p>

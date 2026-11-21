@@ -1,7 +1,7 @@
 # 🔥 FURIA CS2 FANBOT - Landing Page
 
 <div align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/pt/f/f9/Furia_Esports_logo.png" alt="FURIA Logo" width="200"/>
+  <img src="../assets/furia-logo.png" alt="FURIA Logo" width="200"/>
   <h3>🤖 Telegram Bot para Fãs da FURIA Esports 🤖</h3>
   <p><i>Landing page promocional para o bot de Telegram dedicado aos fãs da FURIA CS2</i></p>
   <p><b>Site moderno e responsivo para divulgação do fanbot</b></p>

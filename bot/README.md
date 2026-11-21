@@ -1,7 +1,7 @@
 # 🔥 FURIA CS2 - Fanbot
 
 <div align="center">
-    <img src="https://upload.wikimedia.org/wikipedia/pt/f/f9/Furia_Esports_logo.png" alt="FURIA Logo" width="200"/>
+    <img src="../assets/furia-logo.png" alt="FURIA Logo" width="200"/>
     <h3>📊 O Bot Oficial da FURIA no Telegram 📊</h3>
     <p><i>Interaja com seu time favorito: estatísticas, resultados e novidades em tempo real!</i></p>
     <p><b>Ideal para fãs, comunidades, e eventos de CS2</b></p>

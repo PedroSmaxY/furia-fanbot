@@ -1,7 +1,7 @@
 # 🔥 FURIA CS2 FANBOT - Projeto Completo
 
 <div align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/pt/f/f9/Furia_Esports_logo.png" alt="FURIA Logo" width="200"/>
+  <img src="assets/furia-logo.png" alt="FURIA Logo" width="200"/>
   <h3>🤖 Experiência Conversacional para Fãs da FURIA Esports 🤖</h3>
   <p><i>Solução completa de interação para fãs do time de CS2 FURIA</i></p>
   
